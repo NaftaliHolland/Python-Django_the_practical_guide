@@ -18,22 +18,21 @@ monthly_challenges = {
 }
 
 myresponse = ""
+#This function will redirect to a month depending on the number passed 1 - 12 inclusive
 def monthly_challenge_by_number(request, month):
+    #create a list of keys from the dictionary monthly_challenges
+    challenges = list(monthly_challenges.keys())
+    #We index into the keys using the month passed in as a parameter
+    try:
+        return HttpResponse(monthly_challenges[challenges[month]])
+    except:
+        return HttpResponseNotFound("Not here my man not here")
+
+    
+
+def monthly_challenge(request, month):
     try:
         myresponse = monthly_challenges[month]
         return HttpResponse(myresponse)
     except:
         return HttpResponseNotFound("We don't have that sorry")
-
-'''def monthly_challenge(request, month):
-    myresponse = ""
-    if month == "January":
-        myresponse += "It's january"
-
-    elif month == "February":
-        myresponse += "It's february baiby"
-
-    else:
-        return HttpResponseNotFound("Page Not found")
-
-    return HttpResponse(myresponse)'''
