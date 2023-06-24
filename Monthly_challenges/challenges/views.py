@@ -18,6 +18,17 @@ monthly_challenges = {
     "December" : "Make a plan for the next year"
 }
 
+def index(request):
+    challenge_index = list(monthly_challenges.keys())
+    response_list = """
+    <ul>
+    """
+    for em, i in enumerate(challenge_index, start= 0):
+        response_list += f'<li><a href = "{em}">{challenge_index[em]}</a></li>\n'
+        
+    response_list += "</ul>"
+    return HttpResponse(response_list)
+    
 myresponse = ""
 #This function will redirect to a month depending on the number passed 1 - 12 inclusive
 def monthly_challenge_by_number(request, month):
