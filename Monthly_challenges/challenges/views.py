@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 # Create your views here.
 
 monthly_challenges = {
@@ -23,10 +23,9 @@ def monthly_challenge_by_number(request, month):
     #create a list of keys from the dictionary monthly_challenges
     challenges = list(monthly_challenges.keys())
     #We index into the keys using the month passed in as a parameter
-    try:
-        return HttpResponse(monthly_challenges[challenges[month]])
-    except:
-        return HttpResponseNotFound("Not here my man not here")
+    return HttpResponseRedirect("challenges/" + challenges[month - 1])
+
+    #return HttpResponseNotFound("Not here my man not here")
 
     
 
