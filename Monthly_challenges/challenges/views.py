@@ -38,7 +38,7 @@ def monthly_challenge_by_number(request, month):
     #return HttpResponseRedirect("challenges/" + challenges[month - 1]) Hard coded path there has to be a better way
     if month > len(challenges):
         return HttpResponseNotFound("Not here")
-    challenge = challenges[month - 1]
+    challenge = challenges[month]
     redirect_url = reverse("challenges", args=[challenge])
     
     return HttpResponseRedirect(redirect_url)
@@ -46,7 +46,8 @@ def monthly_challenge_by_number(request, month):
 def monthly_challenge(request, month):
     try:
         myresponse = monthly_challenges[month]
-        page_data = "<h1>{}</h1>".format(myresponse)
+        #page_data = "<h1>{}</h1>".format(myresponse)
+        page_data = render(request, "challenges/challenge.html", {"challenge" : myresponse, "challenge_month" : month})
         return HttpResponse(page_data)
     except:
         return HttpResponseNotFound("We don't have that sorry")
