@@ -19,15 +19,10 @@ monthly_challenges = {
 }
 
 def index(request):
-    challenge_index = list(monthly_challenges.keys())
-    response_list = """
-    <ul>
-    """
-    for em, i in enumerate(challenge_index, start= 0):
-        response_list += f'<li><a href = "{em}">{challenge_index[em]}</a></li>\n'
-        
-    response_list += "</ul>"
-    return HttpResponse(response_list)
+    month_list = list(monthly_challenges.keys())
+
+    response = render(request, "challenges/index.html", {"months" : month_list})
+    return HttpResponse(response)
     
 myresponse = ""
 #This function will redirect to a month depending on the number passed 1 - 12 inclusive
@@ -47,7 +42,7 @@ def monthly_challenge(request, month):
     try:
         myresponse = monthly_challenges[month]
         #page_data = "<h1>{}</h1>".format(myresponse)
-        page_data = render(request, "challenges/challenge.html", {"challenge" : myresponse, "challenge_month" : month})
+        page_data = render(request, "challenges/challenge.html", {"challenge" : myresponse, "challenge_month" : month.lower()})
         return HttpResponse(page_data)
     except:
         return HttpResponseNotFound("We don't have that sorry")
