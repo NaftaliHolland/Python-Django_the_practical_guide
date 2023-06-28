@@ -15,7 +15,7 @@ monthly_challenges = {
     "September" : "What should I do ? Eat more meat",
     "October" : "O don't know man",
     "November" : "What to do",
-    "December" : "Make a plan for the next year"
+    "December" : None
 }
 
 def index(request):
