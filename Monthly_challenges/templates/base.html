@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{challenge_month}}</title>
+    <title>{% block title %}My challenges{% endblock %}</title>
 </head>
 <body>
-    {% block month_task %}
+    {% block content %}
     {% endblock %}
 </body>
 </html>
