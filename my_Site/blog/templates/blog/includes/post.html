@@ -1,0 +1,14 @@
+{% load static %}
+<li>
+    <article class = "post">
+        <a href="{% url "blog_post" "the-mountains"%}">
+            <img src="{% static "blog/images/mountains.jpg"%}" alt="Mountain Hiking">
+            <div class = "post__content">
+                <h3>Mountain hiking</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, laboriosam.
+                </p>
+            </div>
+        </a>
+    </article>
+</li>

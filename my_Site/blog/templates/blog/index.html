@@ -1,18 +1,46 @@
 {% extends "base.html" %}
 {% load static %}
-{% block style %} <link rel="stylesheet" href= {% static "blog/index.css"%} > {% endblock %}
-{% block title %}index{% endblock %}
-{% block content %}
-<div>
-    <div class = "top">
-        <h1>Welcome and popular posts</h1>
-    </div>
-    <div class = "bottom">
-        <h1>Welcome and popular posts</h1>
-    </div>
-    <div class = "float">
 
-    </div>
-    <h1>Welcome and popular posts</h1>
-</div>
+{% block title %}
+My blog
 {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static "blog/posts.css"%}"/>
+<link rel="stylesheet" href= {% static "blog/index.css"%}/>
+{% endblock %}
+
+{% block content %}
+    <section id = "welcome">
+        <header>
+            <img src="{% static "blog/images/max.png"%}" alt="author">
+            <h2>Naph's blog</h2>
+        </header>
+        <p>Hi my name is Naph and I dont really like bloging</p>
+    </section>
+    <section id = "latest-posts">
+        <h2>MY latest Thoughts</h2>
+        <ul>
+           {% include "blog/includes/post.html"%}
+        </ul>
+    </section>
+
+    <section id = "about">
+        <h2>What I do</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore sequi quis similique provident dolorum voluptates?
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ex harum voluptas, eligendi facilis hic?
+        </p>
+    </section>
+{% endblock %}
+
+Lorem ipsum dolor sit.
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, reprehenderit!
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga animi velit minima voluptatibus ad accusantium.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, reprehenderit!
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga animi velit minima voluptatibus ad accusantium.
+
+
